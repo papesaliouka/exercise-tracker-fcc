@@ -6,8 +6,13 @@ async function getAllUsers() {
 }
 
 async function addNewUser(username) {
-  const user = await userDatabase.create({ username: username })
-  return user
+  try{
+    const user = await userDatabase.create({ username: username })
+    return user
+  }catch(e){
+    console.log(e);
+    return e
+  }
 }
 
 async function storeExercises(userId, exercise) {

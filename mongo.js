@@ -1,7 +1,7 @@
-
 const mongoose = require('mongoose');
 
-const mySecret = process.env['MONGO_URI'];
+
+const mySecret = process.env['uri']
 
 
 mongoose.connection.once('open', ()=> {
@@ -11,7 +11,6 @@ mongoose.connection.once('open', ()=> {
 mongoose.connection.on('error', (err)=> {
     console.error(err)
 })
-
 
 async function mongoConnection(){
     await mongoose.connect(mySecret);
