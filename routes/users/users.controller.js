@@ -22,7 +22,7 @@ async function httpPostUser(req, res) {
 
 async function httpPostUserExercises(req, res) {
   let { duration, description, date } = req.body;
-  const userId = req.body._id;
+  const userId = req.body[':_id'];
 
   if(!duration||!description){
     return res.json('duration and description required')
